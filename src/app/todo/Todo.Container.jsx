@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addTodo } from './Todo.actions';
+import { addTodo, toggleTodo } from './Todo.actions';
 import TodoComponent from './Todo.Component';
 
 const mapStateToProps = state => ({
@@ -13,6 +13,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(addTodo(taskInput.value));
     taskInput.value = '';
   },
+  handleClick: todoId => dispatch(toggleTodo(todoId)),
 });
 
 const TodoContainer = connect(
