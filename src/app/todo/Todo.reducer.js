@@ -13,13 +13,14 @@ const todo = (state = {}, action) => {
         return state;
       }
 
-      return Object.assign({}, state, {
+      return {
+        ...state,
         payload: {
           id: state.payload.id,
           task: state.payload.task,
           completed: !state.payload.completed,
         },
-      });
+      };
     default:
       return state;
   }

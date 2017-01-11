@@ -1,35 +1,11 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import TodoPromptContainer from './TodoPrompt.Container';
+import TodoListContainer from './TodoList.Container';
 
-const TodoComponent = ({ handleSubmit, handleClick, todos }) =>
+const TodoComponent = () =>
   <div>
-    <form onSubmit={handleSubmit}>
-      <input type="text" className="task" />
-      <button type="submit">
-        Add Todo
-      </button>
-    </form>
-    <ul>
-      {todos.map(todo =>
-        <li
-          key={todo.payload.id}
-          onClick={() => handleClick(todo.payload.id)}
-          style={{ textDecoration: todo.payload.completed ? 'line-through' : 'none' }}
-        >
-          {todo.payload.task}
-        </li>)
-      }
-    </ul>
+    <TodoPromptContainer />
+    <TodoListContainer />
   </div>;
-
-TodoComponent.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  todos: PropTypes.arrayOf(PropTypes.shape({
-    payload: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      task: PropTypes.string.isRequired,
-    }),
-  }).isRequired).isRequired,
-};
 
 export default TodoComponent;

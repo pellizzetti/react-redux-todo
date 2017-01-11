@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoContainer from './todo/Todo.Container';
+import TodoComponent from './todo/Todo.Component';
 
 const AppComponent = () =>
   <div>
-    <TodoContainer />
+    <TodoComponent />
   </div>;
 
 export default AppComponent;
